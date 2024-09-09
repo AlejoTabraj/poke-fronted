@@ -1,61 +1,47 @@
-# vue-p
+# Proyecto Vue 3 con TypeScript, Pinia y Tailwind
 
-This template should help get you started developing with Vue 3 in Vite.
+Este proyecto está desarrollado con **Vue 3** y **TypeScript**, utilizando principalmente la **Composition API** en lugar de la Option API. Decidí emplear la Composition API porque me permite organizar mejor el código y reutilizar la lógica de manera más eficiente, lo que es especialmente útil en aplicaciones de gran tamaño y con lógica compleja.
 
-## Recommended IDE Setup
+## Arquitectura
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Domain-Driven Design (DDD) sobre MVVM
 
-## Type Support for `.vue` Imports in TS
+Opté por utilizar **Domain-Driven Design (DDD)** en lugar del enfoque **Model-View-ViewModel (MVVM)** que Vue sugiere por defecto. La razón principal es que DDD me permite identificar y trabajar de manera más clara con entidades complejas dentro del dominio, separando las responsabilidades de una forma que hace que la aplicación sea más:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Escalable**: Es mucho más fácil de ampliar conforme crece el proyecto sin que el código se vuelva inmanejable.
+- **Mantenible**: La separación de la lógica de negocio de la lógica de la UI es más clara, lo que facilita la modificación de una sin afectar la otra.
+- **Comprensible**: La estructura del proyecto es más lógica y está mejor organizada, lo que ayuda a que sea fácil de entender, incluso para nuevos desarrolladores que se unan al equipo.
 
-## Customize configuration
+En comparación, MVVM es adecuado para proyectos más pequeños, pero puede volverse confuso y difícil de mantener a medida que la complejidad de la aplicación aumenta.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Manejo del estado con Pinia
 
-## Project Setup
+Para gestionar el estado global de la aplicación, decidí utilizar **Pinia** en lugar de Vuex. Esta decisión se basa en varios beneficios que Pinia ofrece:
 
-```sh
-npm install
-```
+- **Simplicidad**: Pinia tiene una API mucho más intuitiva, lo que reduce la cantidad de configuración necesaria y facilita el uso.
+- **Compatibilidad con TypeScript**: Pinia está optimizado para trabajar con TypeScript, lo que mejora el tipado y la autocompletación en los editores, minimizando errores.
+- **Modularidad**: Pinia permite dividir el estado en stores modulares, lo que hace que el código sea más organizado y fácil de escalar.
 
-### Compile and Hot-Reload for Development
+### Atomic Design para los componentes
 
-```sh
-npm run dev
-```
+Para la organización de los componentes, decidí usar **Atomic Design**, una metodología que me permite:
 
-### Type-Check, Compile and Minify for Production
+- **Mejorar la comunicación vertical**: La jerarquía de componentes (átomos, moléculas, organismos, etc.) facilita la transmisión de datos sin tener que recurrir a patrones complicados como prop drilling.
+- **Reutilización**: Cada componente es reutilizable y modular, lo que ayuda a reducir la duplicación de código.
+- **Simplificación**: Al separar los componentes en piezas más pequeñas y manejables, es más fácil mantener y extender el código.
 
-```sh
-npm run build
-```
+Además, el uso de **Pinia** para la gestión del estado ayuda a evitar una sobrecarga de estructuras y facilita la comunicación entre los diferentes niveles de componentes.
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## Tecnologías utilizadas
 
-```sh
-npm run test:unit
-```
+- **Vue 3**: El framework principal para la construcción de la interfaz de usuario.
+- **Pinia**: Para la gestión del estado global de la aplicación.
+- **Tailwind CSS**: Utilizo este framework CSS para crear estilos rápidos y consistentes, lo que agiliza el desarrollo y mantiene una estética uniforme en toda la aplicación.
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+## Beneficios de estas decisiones
 
-```sh
-npm run test:e2e:dev
-```
+- **Escalabilidad y mantenibilidad**: La elección de DDD y Atomic Design asegura que el código pueda crecer sin volverse inmanejable.
+- **Gestión de estado sencilla**: Pinia facilita la modularización y mejora la integración con TypeScript.
+- **Modularidad**: Atomic Design asegura componentes reutilizables y organizados de manera lógica.
 
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Todas estas decisiones están orientadas a construir una aplicación robusta, escalable y fácil de mantener, preparada para adaptarse a futuras necesidades del proyecto.
