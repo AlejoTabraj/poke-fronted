@@ -19,7 +19,7 @@ En comparación, MVVM es adecuado para proyectos más pequeños, pero puede volv
 Para gestionar el estado global de la aplicación, decidí utilizar **Pinia** en lugar de Vuex. Esta decisión se basa en varios beneficios que Pinia ofrece:
 
 - **Simplicidad**: Pinia tiene una API mucho más intuitiva, lo que reduce la cantidad de configuración necesaria y facilita el uso.
-- **Compatibilidad con TypeScript**: Pinia está optimizado para trabajar con TypeScript, lo que mejora el tipado y la autocompletación en los editores, minimizando errores.
+- **Compatibilidad con TypeScript**: Pinia está optimizado para trabajar con TypeScript, lo que mejora el tipado minimizando errores.
 - **Modularidad**: Pinia permite dividir el estado en stores modulares, lo que hace que el código sea más organizado y fácil de escalar.
 
 ### Atomic Design para los componentes
