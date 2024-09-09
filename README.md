@@ -1,5 +1,7 @@
 # Proyecto Vue 3 con TypeScript, Pinia y Tailwind
 
+## Node version: 20.9.0
+
 Este proyecto está desarrollado con **Vue 3** y **TypeScript**, utilizando principalmente la **Composition API** en lugar de la Option API. Decidí emplear la Composition API porque me permite organizar mejor el código y reutilizar la lógica de manera más eficiente, lo que es especialmente útil en aplicaciones de gran tamaño y con lógica compleja.
 
 ## Arquitectura
